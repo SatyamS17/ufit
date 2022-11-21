@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ufit/registrationScreen_screen_3.dart';
 import '../../ui/export.dart';
 
 class welcomePage_screen_1 extends StatefulWidget {
@@ -18,7 +19,7 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
     double heightScale = height / 812;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 219, 114, 45),
       body: SizedBox(
         width: width,
         height: height,
@@ -29,45 +30,37 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
             SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Stack(children: [
-                const SizedBox(height: 812, width: 375),
+                const SizedBox(height: 830, width: 400),
 //-- Component cornerShape_Container_8 --//
                 Positioned(
-                  left: 0,
-                  top: 0,
+                  left: -70,
+                  top: -30,
                   child: Container(
-                    width: 222,
-                    height: 226,
+                    width: 175,
+                    height: 175,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
+                      color: Color.fromARGB(255, 15, 55, 88),
+                      shape: BoxShape.circle,
                     ),
                     child: Stack(
                         alignment: Alignment.center,
                         clipBehavior: Clip.none,
                         children: [
-//-- Component Ellipse_Container_9 --//
+//-- Component Ellipse_Container_62 --//
                           Positioned(
+                            left: 60,
+                            top: -60,
                             child: Container(
-                              width: 159 * widthScale,
-                              height: 171 * heightScale,
+                              width: 175,
+                              height: 175,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(0),
+                                color: Color.fromRGBO(21, 104, 165, 1),
+                                shape: BoxShape.circle,
                               ),
                             ),
                           ),
 
-//-- End Ellipse_Container_9 --//
-//-- Component Ellipse_Container_10 --//
-                          Positioned(
-                            child: Container(
-                              width: 159 * widthScale,
-                              height: 171 * heightScale,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(0),
-                              ),
-                            ),
-                          ),
-
-//-- End Ellipse_Container_10 --//
+//-- End Ellipse_Container_63 --//
                         ]),
                   ),
                 ),
@@ -84,31 +77,30 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                         "assets/undrawbasketballrefsbx_ImageView_11-150x207.png"),
                   ),
                 ),
-//-- End undrawbasketballrefsbx_ImageView_11 --//
-//-- Component Ellipse_Container_12 --//
                 Positioned(
-                  left: 211,
-                  top: 708,
+                  left: 230,
+                  top: 740,
                   child: Container(
-                    
-                    width: 159,
-                    height: 171,
+                    width: 175,
+                    height: 175,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
+                      color: Color.fromARGB(255, 15, 55, 88),
+                      shape: BoxShape.circle,
                     ),
                   ),
                 ),
 
-//-- End Ellipse_Container_12 --//
-//-- Component Ellipse_Container_13 --//
+//-- End Ellipse_Container_64 --//
+//-- Component Ellipse_Container_65 --//
                 Positioned(
-                  left: 272,
-                  top: 668,
+                  left: 290,
+                  top: 700,
                   child: Container(
-                    width: 159,
-                    height: 171,
+                    width: 175,
+                    height: 175,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
+                      color: Color.fromRGBO(21, 104, 165, 1),
+                      shape: BoxShape.circle,
                     ),
                   ),
                 ),
@@ -147,8 +139,8 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                             child: SizedBox(
                               width: 25 * widthScale,
                               height: 25 * heightScale,
-                              child: Image.asset(
-                                  "assets/signal_ImageView_16-25x25.png"),
+                              // child: Image.asset(
+                              //     "assets/signal_ImageView_16-25x25.png"),
                             ),
                           ),
 //-- End signal_ImageView_16 --//
@@ -159,8 +151,8 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                             child: SizedBox(
                               width: 25 * widthScale,
                               height: 25 * heightScale,
-                              child: Image.asset(
-                                  "assets/wifi_ImageView_17-25x25.png"),
+                              // child: Image.asset(
+                              //     "assets/wifi_ImageView_17-25x25.png"),
                             ),
                           ),
 //-- End wifi_ImageView_17 --//
@@ -171,23 +163,13 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                             child: SizedBox(
                               width: 25 * widthScale,
                               height: 25 * heightScale,
-                              child: Image.asset(
-                                  "assets/batteryfull_ImageView_18-25x25.png"),
+                              // child: Image.asset(
+                              //     "assets/batteryfull_ImageView_18-25x25.png"),
                             ),
                           ),
 //-- End batteryfull_ImageView_18 --//
 //-- Component _TextView_19 --//
-                          const Positioned(
-                              child: Text(
-                            "9:40 ",
-                            overflow: TextOverflow.visible,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.black,
-                                wordSpacing: 1.0),
-                          )),
+
 //-- End _TextView_19 --//
                         ]),
                   ),
@@ -196,7 +178,7 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
 //-- End TopPageComponents_Container_15 --//
 //-- Component UIUCStudentFitnessSchedulingApp_TextView_20 --//
                 const Positioned(
-                    left: 15,
+                    left: 50,
                     top: 167,
                     child: Text(
                       "UIUC Student Fitness Scheduling App ",
@@ -205,13 +187,13 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
-                          color: FvColors.black,
+                          color: Colors.white,
                           wordSpacing: 1.0),
                     )),
 //-- End UIUCStudentFitnessSchedulingApp_TextView_20 --//
 //-- Component Welcome_TextView_21 --//
                 const Positioned(
-                    left: 88,
+                    left: 110,
                     top: 101,
                     child: Text(
                       "Welcome!",
@@ -220,8 +202,8 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                       style: TextStyle(
                           fontSize: 36,
                           fontWeight: FontWeight.w700,
-                          color: FvColors.black,
-                          wordSpacing: 1.0),
+                          color: Colors.white,
+                          wordSpacing: 2.0),
                     )),
 //-- End Welcome_TextView_21 --//
 //-- Component ButtonNext_Button_22 --//
@@ -235,22 +217,28 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                           child: const Text('Let’s Get Started!',
                               overflow: TextOverflow.visible,
                               style: TextStyle(
-                                color: FvColors.black,
-                                fontSize: 14,
+                                color: Colors.white,
+                                fontSize: 17,
                                 fontWeight: FontWeight.w700,
                               )),
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
-                            backgroundColor: Colors.orange,
+                            backgroundColor: Color.fromRGBO(21, 104, 165, 1),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(0),
                               side: const BorderSide(
                                 width: 0,
-                                color: Colors.black,
+                                color: Colors.transparent,
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        registrationScreen_screen_3()));
+                          },
                         ))),
 //-- End ButtonNext_Button_22 --//
               ]),

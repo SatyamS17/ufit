@@ -33,16 +33,17 @@ class _registrationScreen_screen_3State
             SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Stack(children: [
-                const SizedBox(height: 812, width: 375),
+                const SizedBox(height: 830, width: 400),
 //-- Component cornerShape_Container_61 --//
                 Positioned(
-                  left: 0,
-                  top: 0,
+                  left: -70,
+                  top: -30,
                   child: Container(
-                    width: 222,
-                    height: 226,
+                    width: 175,
+                    height: 175,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
+                      color: Color.fromARGB(255, 15, 55, 88),
+                      shape: BoxShape.circle,
                     ),
                     child: Stack(
                         alignment: Alignment.center,
@@ -50,23 +51,14 @@ class _registrationScreen_screen_3State
                         children: [
 //-- Component Ellipse_Container_62 --//
                           Positioned(
+                            left: 60,
+                            top: -60,
                             child: Container(
-                              width: 159 * widthScale,
-                              height: 171 * heightScale,
+                              width: 175,
+                              height: 175,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(0),
-                              ),
-                            ),
-                          ),
-
-//-- End Ellipse_Container_62 --//
-//-- Component Ellipse_Container_63 --//
-                          Positioned(
-                            child: Container(
-                              width: 159 * widthScale,
-                              height: 171 * heightScale,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(0),
+                                color: Color.fromRGBO(21, 104, 165, 1),
+                                shape: BoxShape.circle,
                               ),
                             ),
                           ),
@@ -79,13 +71,14 @@ class _registrationScreen_screen_3State
 //-- End cornerShape_Container_61 --//
 //-- Component Ellipse_Container_64 --//
                 Positioned(
-                  left: 211,
-                  top: 708,
+                  left: 230,
+                  top: 740,
                   child: Container(
-                    width: 159,
-                    height: 171,
+                    width: 175,
+                    height: 175,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
+                      color: Color.fromARGB(255, 15, 55, 88),
+                      shape: BoxShape.circle,
                     ),
                   ),
                 ),
@@ -93,13 +86,14 @@ class _registrationScreen_screen_3State
 //-- End Ellipse_Container_64 --//
 //-- Component Ellipse_Container_65 --//
                 Positioned(
-                  left: 272,
-                  top: 680,
+                  left: 290,
+                  top: 700,
                   child: Container(
-                    width: 159,
-                    height: 159,
+                    width: 175,
+                    height: 175,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(0),
+                      color: Color.fromRGBO(21, 104, 165, 1),
+                      shape: BoxShape.circle,
                     ),
                   ),
                 ),
@@ -145,53 +139,53 @@ class _registrationScreen_screen_3State
                         clipBehavior: Clip.none,
                         children: [
 //-- Component signal_ImageView_68 --//
-                          Positioned(
-                            left: 260,
-                            top: 0,
-                            child: SizedBox(
-                              width: 25 * widthScale,
-                              height: 25 * heightScale,
-                              child: Image.asset(
-                                  "assets/signal_ImageView_68-25x25.png"),
-                            ),
-                          ),
+                          // Positioned(
+                          //   left: 260,
+                          //   top: 0,
+                          //   child: SizedBox(
+                          //     width: 25 * widthScale,
+                          //     height: 25 * heightScale,
+                          //     child: Image.asset(
+                          //         "assets/signal_ImageView_68-25x25.png"),
+                          //   ),
+                          // ),
 //-- End signal_ImageView_68 --//
 //-- Component wifi_ImageView_69 --//
-                          Positioned(
-                            left: 289,
-                            top: 0,
-                            child: SizedBox(
-                              width: 25 * widthScale,
-                              height: 25 * heightScale,
-                              child: Image.asset(
-                                  "assets/wifi_ImageView_69-25x25.png"),
-                            ),
-                          ),
-//-- End wifi_ImageView_69 --//
-//-- Component batteryfull_ImageView_70 --//
-                          Positioned(
-                            left: 320,
-                            top: 0,
-                            child: SizedBox(
-                              width: 25 * widthScale,
-                              height: 25 * heightScale,
-                              child: Image.asset(
-                                  "assets/batteryfull_ImageView_70-25x25.png"),
-                            ),
-                          ),
-//-- End batteryfull_ImageView_70 --//
-//-- Component _TextView_71 --//
-                          const Positioned(
-                              child: Text(
-                            "9:40 ",
-                            overflow: TextOverflow.visible,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                                color: FvColors.black,
-                                wordSpacing: 1.0),
-                          )),
+//                           Positioned(
+//                             left: 289,
+//                             top: 0,
+//                             child: SizedBox(
+//                               width: 25 * widthScale,
+//                               height: 25 * heightScale,
+//                               child: Image.asset(
+//                                   "assets/wifi_ImageView_69-25x25.png"),
+//                             ),
+//                           ),
+// //-- End wifi_ImageView_69 --//
+// //-- Component batteryfull_ImageView_70 --//
+//                           Positioned(
+//                             left: 320,
+//                             top: 0,
+//                             child: SizedBox(
+//                               width: 25 * widthScale,
+//                               height: 25 * heightScale,
+//                               child: Image.asset(
+//                                   "assets/batteryfull_ImageView_70-25x25.png"),
+//                             ),
+//                           ),
+// //-- End batteryfull_ImageView_70 --//
+// //-- Component _TextView_71 --//
+//                           const Positioned(
+//                               child: Text(
+//                             "9:40 ",
+//                             overflow: TextOverflow.visible,
+//                             textAlign: TextAlign.left,
+//                             style: TextStyle(
+//                                 fontSize: 14,
+//                                 fontWeight: FontWeight.w700,
+//                                 color: FvColors.black,
+//                                 wordSpacing: 1.0),
+//                           )),
 //-- End _TextView_71 --//
                         ]),
                   ),
@@ -200,32 +194,31 @@ class _registrationScreen_screen_3State
 //-- End TopPageComponents_Container_67 --//
 //-- Component RegisterHere_TextView_72 --//
                 Positioned(
-                  left: 20,
+                  left: 25,
                   top: 615,
                   child: SizedBox(
-                      width: 325 *widthScale,
-                      height: 45,
-                      child: TextFormField(
-                          textAlign: TextAlign.center,
-                          maxLines: (50 * 0.10).toInt(),
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color.fromRGBO(21, 104, 165, 1),
-                            hintText: 'Register Here',
-                            hintStyle: TextStyle(
-
-                                color: Colors.white,
-                                fontSize: 14,
+                    width: 325 * widthScale,
+                    height: 45,
+                    child: TextFormField(
+                        textAlign: TextAlign.center,
+                        maxLines: (50 * 0.10).toInt(),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Color.fromRGBO(21, 104, 165, 1),
+                          hintText: 'Register Here',
+                          hintStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
                             fontWeight: FontWeight.w700,
-                            
                           ),
-                          )),
-                ),),
+                        )),
+                  ),
+                ),
 //-- End RegisterHere_TextView_72 --//
 //-- Component SIGNUP_TextView_73 --//
                 const Positioned(
-                    left: 44,
-                    top: 210,
+                    left: 75,
+                    top: 220,
                     child: Text(
                       "SIGN UP ",
                       overflow: TextOverflow.visible,
@@ -239,7 +232,7 @@ class _registrationScreen_screen_3State
 //-- End SIGNUP_TextView_73 --//
 //-- Component SignUpTabs_Button_74 --//
                 Positioned(
-                  left: 25,
+                  left: 35,
                   top: 380,
                   child: Container(
                     width: 325,
@@ -288,7 +281,7 @@ class _registrationScreen_screen_3State
 //-- End SignUpTabs_Button_74 --//
 //-- Component SignUpTabs_Container_75 --//
                 Positioned(
-                  left: 25,
+                  left: 35,
                   top: 455,
                   child: Container(
                     width: 325,
@@ -339,20 +332,22 @@ class _registrationScreen_screen_3State
 //-- Component SignUpTabs_EditText_78 --//
 
                 Positioned(
-                  left: 25,
+                  left: 35,
                   top: 305,
                   child: SizedBox(
                       width: 325,
                       height: 50,
                       child: TextFormField(
                           textAlign: TextAlign.left,
+                      
                           maxLines: (50 * 0.10).toInt(),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Color.fromARGB(255, 211, 207, 207),
                             hintText: 'Enter your full name',
                             hintStyle: const TextStyle(
-                                color: Color.fromARGB(255, 121, 118, 118)),
+                              fontSize: 14,
+                              color: Color.fromARGB(255, 121, 118, 118)),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(100),
                               borderSide: const BorderSide(
@@ -361,7 +356,7 @@ class _registrationScreen_screen_3State
                           ),
                           style: const TextStyle(
                             color: FvColors.black,
-                            fontSize: 14,
+                            fontSize: 17,
                             fontWeight: FontWeight.w700,
                           ))),
                 ),
@@ -369,7 +364,7 @@ class _registrationScreen_screen_3State
 //-- Component SignUpTabs_EditText_79 --//
 
                 Positioned(
-                  left: 25,
+                  left: 35,
                   top: 528,
                   child: SizedBox(
                       width: 325,
@@ -416,7 +411,7 @@ class _registrationScreen_screen_3State
                 //       //     color: Colors.white,
                 //       //     wordSpacing: 1.0),
                 //     ),
-                    
+
                 //     ),
 //-- End AlreadyhaveanaccountSignin_TextView_80 --//
 //-- Component undrawjoggingreki_ImageView_81 --//

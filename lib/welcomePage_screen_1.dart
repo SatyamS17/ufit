@@ -178,14 +178,14 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
 //-- End TopPageComponents_Container_15 --//
 //-- Component UIUCStudentFitnessSchedulingApp_TextView_20 --//
                 const Positioned(
-                    left: 50,
+                    left: 20,
                     top: 167,
                     child: Text(
                       "UIUC Student Fitness Scheduling App ",
                       overflow: TextOverflow.visible,
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
                           wordSpacing: 1.0),
@@ -193,14 +193,14 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
 //-- End UIUCStudentFitnessSchedulingApp_TextView_20 --//
 //-- Component Welcome_TextView_21 --//
                 const Positioned(
-                    left: 110,
+                    left: 80,
                     top: 101,
                     child: Text(
                       "Welcome!",
                       overflow: TextOverflow.visible,
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                          fontSize: 36,
+                          fontSize: 50,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
                           wordSpacing: 2.0),
@@ -218,7 +218,7 @@ class _welcomePage_screen_1State extends State<welcomePage_screen_1> {
                               overflow: TextOverflow.visible,
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 17,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w700,
                               )),
                           style: TextButton.styleFrom(

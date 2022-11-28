@@ -19,6 +19,9 @@ class signInScreen_screen_4 extends StatefulWidget {
 class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
+  bool _isVisible = false;
+  String text = "not set";
+  double num = 90.0;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -296,35 +299,35 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
 
 //-- End ForgotPasswordClickHere_TextView_98 --//
 //-- Component DonthaveanaccountSignuphere_TextView_99 --//
-                  Positioned(
-                  top: 635,
-                  left: 50,
-                  child: RichText(
-                    text: TextSpan(
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                        text: "Don't have an account?  ",
-                        children: [
-                          TextSpan(
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () async {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              registrationScreen_screen_3()));
-                                },
-                              text: "Sign Up",
-                              style: TextStyle(
-                                color: Color.fromRGBO(21, 104, 165, 1),
-                                fontSize: 20,
-                              ))
-                        ]),
-                  ),
-                ),
+                    Positioned(
+                      top: 635,
+                      left: 50,
+                      child: RichText(
+                        text: TextSpan(
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                            text: "Don't have an account?  ",
+                            children: [
+                              TextSpan(
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () async {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  registrationScreen_screen_3()));
+                                    },
+                                  text: "Sign Up",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(21, 104, 165, 1),
+                                    fontSize: 20,
+                                  ))
+                            ]),
+                      ),
+                    ),
 //-- End DonthaveanaccountSignuphere_TextView_99 --//
 //-- Component Login_TextView_100 --//
 
@@ -339,28 +342,102 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
                             backgroundColor: Color.fromRGBO(21, 104, 165, 1),
                           ),
                           //backgroundColor: Color.fromRGBO(21, 104, 165, 1),
-                          child: Text('LOG IN', style: TextStyle(
-                            color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700,
-                          ),),
-                            onPressed: () => {
-                                FirebaseAuth.instance.signInWithEmailAndPassword(
-                                  email: _emailController.text.trim(), 
-                                  password: _passwordController.text.trim()).then((value) {
-                                    Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => homePage_screen_2()));
-                                  }).onError((error, stackTrace) {
-                                    print("Error");
-                                  })
-
-                            },
-                      
+                          child: Text(
+                            'LOG IN',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w700,
                             ),
+                          ),
+                          onPressed: () async {
+                            setState(
+                              () {
+                                _isVisible = false;
+                                num = 95.0;
+                                text = "";
+                              },
+                            );
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (context) => Center(
+                                  child: CircularProgressIndicator(
+                                backgroundColor:
+                                    Color.fromARGB(255, 219, 114, 45),
+                              )),
+                            );
+                            try {
+                              if (_passwordController.text == "") {
+                                throw new FormatException();
+                              }
+                              if (_emailController.text == "") {
+                                throw new FormatException();
+                              }
+                              FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                      email: _emailController.text.trim(),
+                                      password: _passwordController.text.trim())
+                                  .then((value) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            homePage_screen_2()));
+                              }).onError((error, stackTrace) {
+                                print("wrong password");
+                                setState(
+                                  () {
+                                    text = "WRONG PASSWORD!";
+                                    _isVisible = true;
+                                    num = 110;
+                                  },
+                                );
+                              });
+                            } catch (FormatException) {
+                              if (_passwordController.text == "") {
+                                print("no password");
+                                setState(
+                                  () {
+                                    text = "PLEASE TYPE YOUR PASSWORD!";
+                                    _isVisible = true;
+                                    num = 65;
+                                  },
+                                );
+                              }
+                              if (_emailController.text == "") {
+                                print("no email");
+                                setState(
+                                  () {
+                                    text = "PLEASE TYPE YOUR EMAIL!";
+                                    _isVisible = true;
+                                    num = 90;
+                                  },
+                                );
+                              }
+                            } finally {
+                          Navigator.pop(context);
+                        }
+                          },
+                        ),
                       ),
                     ),
+
+                    Positioned(
+                        left: num,
+                        top: 540,
+                        child: Visibility(
+                            visible: _isVisible,
+                            child: Text(
+                              text,
+                              overflow: TextOverflow.visible,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color.fromARGB(255, 143, 28, 20),
+                                  wordSpacing: 1.0),
+                            ))),
 //-- End Login_TextView_100 --//
 //-- Component undrawwalkingoutsiderexo_ImageView_101 --//
                     Positioned(

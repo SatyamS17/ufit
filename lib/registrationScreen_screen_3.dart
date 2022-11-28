@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_const
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ufit/input_userinfo_screen.dart';
 import 'package:ufit/signInScreen_screen_4.dart';
@@ -203,24 +205,34 @@ class _registrationScreen_screen_3State
                 Positioned(
                   left: 25,
                   top: 615,
-                  child: SizedBox(
+                  child: Container(
                     width: 325 * widthScale,
                     height: 45,
-                    child: TextFormField(
-                        onTap: () => Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => input())),
-                        textAlign: TextAlign.center,
-                        maxLines: (50 * 0.10).toInt(),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Color.fromRGBO(21, 104, 165, 1),
-                          hintText: 'Register Here',
-                          hintStyle: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        )),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(21, 104, 165, 1),
+                      ),
+                      child: Text(
+                        'SIGN UP',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      onPressed: () => {
+                        FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: _emailTextController.text,
+                                password: _passwordController.text)
+                            .then((value) {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => input()));
+                        }).onError((error, stackTrace) {
+                          print("Error");
+                        })
+                      },
+                    ),
                   ),
                 ),
 //-- End RegisterHere_TextView_72 --//
@@ -346,6 +358,35 @@ class _registrationScreen_screen_3State
                 //     ),
 
                 //     ),
+                Positioned(
+                  top: 670,
+                  left: 60,
+                  child: RichText(
+                    text: TextSpan(
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
+                        text: "Already have an account?  ",
+                        children: [
+                          TextSpan(
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () async {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              signInScreen_screen_4()));
+                                },
+                              text: "Sign In",
+                              style: TextStyle(
+                                color: Color.fromRGBO(21, 104, 165, 1),
+                                fontSize: 17,
+                              ))
+                        ]),
+                  ),
+                ),
 //-- End AlreadyhaveanaccountSignin_TextView_80 --//
 //-- Component undrawjoggingreki_ImageView_81 --//
                 Positioned(

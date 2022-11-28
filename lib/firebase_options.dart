@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCthbD1z92sXsK4X2ONiKEYI_aPOea6igY',
-    appId: '1:943871561774:web:7079fc1bdbe50b79360fbf',
-    messagingSenderId: '943871561774',
-    projectId: 'u-fit-b9c1a',
-    authDomain: 'u-fit-b9c1a.firebaseapp.com',
-    storageBucket: 'u-fit-b9c1a.appspot.com',
-    measurementId: 'G-J5HEN50SC8',
+    apiKey: 'AIzaSyBcL18UxFWrsH252cBkNDkqfoacTVaVM6Q',
+    appId: '1:444582222729:web:54684d14262d124f0d5f58',
+    messagingSenderId: '444582222729',
+    projectId: 'ufit-d7f48',
+    authDomain: 'ufit-d7f48.firebaseapp.com',
+    storageBucket: 'ufit-d7f48.appspot.com',
+    measurementId: 'G-HDWWW1GZ1T',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDYdrC7qVZVWmLrip4pM56pelE3UmEWpVU',
-    appId: '1:943871561774:android:8dcb6a6962caa768360fbf',
-    messagingSenderId: '943871561774',
-    projectId: 'u-fit-b9c1a',
-    storageBucket: 'u-fit-b9c1a.appspot.com',
+    apiKey: 'AIzaSyBP8UwqwJkSKx4W0yAGdYvc7syCAVz8uXw',
+    appId: '1:444582222729:android:f58eb28beaa9cc8f0d5f58',
+    messagingSenderId: '444582222729',
+    projectId: 'ufit-d7f48',
+    storageBucket: 'ufit-d7f48.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBSOCgafzqXtpRYgmD42cMJWKpSCM3zbfE',
-    appId: '1:943871561774:ios:9c9731ed4d276437360fbf',
-    messagingSenderId: '943871561774',
-    projectId: 'u-fit-b9c1a',
-    storageBucket: 'u-fit-b9c1a.appspot.com',
-    iosClientId: '943871561774-i2ijj65ft78479ukrplno324hq1ci4i6.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCpTv7z9DFnZBx1OIk5iNG_8wTaNHJkXYs',
+    appId: '1:444582222729:ios:9646c42cf0860ea90d5f58',
+    messagingSenderId: '444582222729',
+    projectId: 'ufit-d7f48',
+    storageBucket: 'ufit-d7f48.appspot.com',
+    iosClientId: '444582222729-29rrmvpcdchm24td0rv397j9l63v4m35.apps.googleusercontent.com',
     iosBundleId: 'com.example.ufit',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBSOCgafzqXtpRYgmD42cMJWKpSCM3zbfE',
-    appId: '1:943871561774:ios:9c9731ed4d276437360fbf',
-    messagingSenderId: '943871561774',
-    projectId: 'u-fit-b9c1a',
-    storageBucket: 'u-fit-b9c1a.appspot.com',
-    iosClientId: '943871561774-i2ijj65ft78479ukrplno324hq1ci4i6.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCpTv7z9DFnZBx1OIk5iNG_8wTaNHJkXYs',
+    appId: '1:444582222729:ios:9646c42cf0860ea90d5f58',
+    messagingSenderId: '444582222729',
+    projectId: 'ufit-d7f48',
+    storageBucket: 'ufit-d7f48.appspot.com',
+    iosClientId: '444582222729-29rrmvpcdchm24td0rv397j9l63v4m35.apps.googleusercontent.com',
     iosBundleId: 'com.example.ufit',
   );
 }

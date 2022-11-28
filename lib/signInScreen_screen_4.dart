@@ -1,3 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ufit/homePage_screen_2.dart';
@@ -293,49 +296,69 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
 
 //-- End ForgotPasswordClickHere_TextView_98 --//
 //-- Component DonthaveanaccountSignuphere_TextView_99 --//
-                    const Positioned(
-                      left: 60,
-                      top: 634,
-                      child: InkWell(
-                        child: Text(
-                          "Don’t have an account? Sign up here",
-                          overflow: TextOverflow.visible,
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              wordSpacing: 1.0),
+                  Positioned(
+                  top: 635,
+                  left: 50,
+                  child: RichText(
+                    text: TextSpan(
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
-                        // onTap: () => launch(registrationScreen_screen_3()),
-                      ),
-                    ),
+                        text: "Don't have an account?  ",
+                        children: [
+                          TextSpan(
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () async {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              registrationScreen_screen_3()));
+                                },
+                              text: "Sign Up",
+                              style: TextStyle(
+                                color: Color.fromRGBO(21, 104, 165, 1),
+                                fontSize: 20,
+                              ))
+                        ]),
+                  ),
+                ),
 //-- End DonthaveanaccountSignuphere_TextView_99 --//
 //-- Component Login_TextView_100 --//
 
                     Positioned(
                       left: 25,
                       top: 570,
-                      child: SizedBox(
+                      child: Container(
                         width: 325 * widthScale,
                         height: 45,
-                        child: TextFormField(
-                            onTap: () => Navigator.push(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromRGBO(21, 104, 165, 1),
+                          ),
+                          //backgroundColor: Color.fromRGBO(21, 104, 165, 1),
+                          child: Text('LOG IN', style: TextStyle(
+                            color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                          ),),
+                            onPressed: () => {
+                                FirebaseAuth.instance.signInWithEmailAndPassword(
+                                  email: _emailController.text, 
+                                  password: _passwordController.text).then((value) {
+                                    Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => homePage_screen_2())),
-                            textAlign: TextAlign.center,
-                            maxLines: (50 * 0.10).toInt(),
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Color.fromRGBO(21, 104, 165, 1),
-                              hintText: 'Login',
-                              hintStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            )),
+                                    builder: (context) => homePage_screen_2()));
+                                  }).onError((error, stackTrace) {
+                                    print("Error");
+                                  })
+
+                            },
+                      
+                            ),
                       ),
                     ),
 //-- End Login_TextView_100 --//

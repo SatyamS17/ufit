@@ -1,6 +1,9 @@
 // ignore_for_file: unnecessary_const
 
 import 'package:flutter/material.dart';
+import 'package:ufit/input_userinfo_screen.dart';
+import 'package:ufit/signInScreen_screen_4.dart';
+import 'package:ufit/ui/reusable_widgets.dart';
 import '../ui/export.dart';
 
 class registrationScreen_screen_3 extends StatefulWidget {
@@ -13,6 +16,10 @@ class registrationScreen_screen_3 extends StatefulWidget {
 
 class _registrationScreen_screen_3State
     extends State<registrationScreen_screen_3> {
+  TextEditingController _fullName = new TextEditingController();
+  TextEditingController _emailTextController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
+  TextEditingController _confirmPassword = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -200,6 +207,8 @@ class _registrationScreen_screen_3State
                     width: 325 * widthScale,
                     height: 45,
                     child: TextFormField(
+                        onTap: () => Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => input())),
                         textAlign: TextAlign.center,
                         maxLines: (50 * 0.10).toInt(),
                         decoration: InputDecoration(
@@ -236,46 +245,14 @@ class _registrationScreen_screen_3State
                   top: 380,
                   child: Container(
                     width: 325,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 121, 118, 118),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: Stack(
-                        alignment: Alignment.center,
-                        clipBehavior: Clip.none,
-                        children: [
-//-- Component Rectangle_Container_76 --//
-                          Positioned(
-                            left: 0,
-                            top: 0,
-                            child: Container(
-                              width: 325,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 211, 207, 207),
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                            ),
-                          ),
-
-//-- End Rectangle_Container_76 --//
-//-- Component Enteryourpassword_TextView_77 --//
-                          const Positioned(
-                              left: 15,
-                              top: 17,
-                              child: Text(
-                                "Enter Your UIUC email",
-                                overflow: TextOverflow.visible,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color.fromARGB(255, 121, 118, 118),
-                                    wordSpacing: 1.0),
-                              )),
-//-- End Enteryourpassword_TextView_77 --//
-                        ]),
+                    height: 75,
+                    child: SizedBox(
+                        child: Column(
+                      children: [
+                        reusuableTextField("Enter your UIUC email here",
+                            Icons.email, false, _emailTextController)
+                      ],
+                    )),
                   ),
                 ),
 //-- End SignUpTabs_Button_74 --//
@@ -284,48 +261,14 @@ class _registrationScreen_screen_3State
                   left: 35,
                   top: 455,
                   child: Container(
-                    width: 325,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 121, 118, 118),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: Stack(
-                        alignment: Alignment.center,
-                        clipBehavior: Clip.none,
-                        children: [
-//-- Component Rectangle_Container_76 --//
-                          Positioned(
-                            left: 0,
-                            top: 0,
-                            child: Container(
-                              width: 325,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 211, 207, 207),
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                            ),
-                          ),
-
-//-- End Rectangle_Container_76 --//
-//-- Component Enteryourpassword_TextView_77 --//
-                          const Positioned(
-                              left: 15,
-                              top: 17,
-                              child: Text(
-                                "Enter your password",
-                                overflow: TextOverflow.visible,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color.fromARGB(255, 121, 118, 118),
-                                    wordSpacing: 1.0),
-                              )),
-//-- End Enteryourpassword_TextView_77 --//
+                      width: 325,
+                      height: 75,
+                      child: SizedBox(
+                        child: Column(children: [
+                          reusuableTextField("Enter your password",
+                              Icons.password, true, _passwordController),
                         ]),
-                  ),
+                      )),
                 ),
 
 //-- End SignUpTabs_Container_75 --//
@@ -335,30 +278,35 @@ class _registrationScreen_screen_3State
                   left: 35,
                   top: 305,
                   child: SizedBox(
-                      width: 325,
-                      height: 50,
-                      child: TextFormField(
-                          textAlign: TextAlign.left,
-                      
-                          maxLines: (50 * 0.10).toInt(),
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 211, 207, 207),
-                            hintText: 'Enter your full name',
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              color: Color.fromARGB(255, 121, 118, 118)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(100),
-                              borderSide: const BorderSide(
-                                  style: BorderStyle.none, width: 0),
-                            ),
-                          ),
-                          style: const TextStyle(
-                            color: FvColors.black,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700,
-                          ))),
+                    width: 325,
+                    height: 75,
+
+                    child: Column(children: [
+                      reusuableTextField("Enter your full name",
+                          Icons.person_outline, false, _fullName),
+                    ]),
+                    // child: TextFormField(
+                    //     textAlign: TextAlign.left,
+                    //     maxLines: (50 * 0.10).toInt(),
+                    //     decoration: InputDecoration(
+                    //       filled: true,
+                    //       fillColor: Color.fromARGB(255, 211, 207, 207),
+                    //       hintText: 'Enter your full name',
+                    //       hintStyle: const TextStyle(
+                    //           fontSize: 14,
+                    //           color: Color.fromARGB(255, 121, 118, 118)),
+                    //       border: OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(100),
+                    //         borderSide: const BorderSide(
+                    //             style: BorderStyle.none, width: 0),
+                    //       ),
+                    //     ),
+                    //     style: const TextStyle(
+                    //       color: FvColors.black,
+                    //       fontSize: 17,
+                    //       fontWeight: FontWeight.w700,
+                    //     ))
+                  ),
                 ),
 //-- End SignUpTabs_EditText_78 --//
 //-- Component SignUpTabs_EditText_79 --//
@@ -367,28 +315,13 @@ class _registrationScreen_screen_3State
                   left: 35,
                   top: 528,
                   child: SizedBox(
-                      width: 325,
-                      height: 50,
-                      child: TextFormField(
-                          textAlign: TextAlign.left,
-                          maxLines: (50 * 0.10).toInt(),
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 211, 207, 207),
-                            hintText: 'Confirm your password',
-                            hintStyle: const TextStyle(
-                                color: Color.fromARGB(255, 121, 118, 118)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(100),
-                              borderSide: const BorderSide(
-                                  style: BorderStyle.none, width: 0),
-                            ),
-                          ),
-                          style: const TextStyle(
-                            color: FvColors.black,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                          ))),
+                    width: 325,
+                    height: 75,
+                    child: Column(children: [
+                      reusuableTextField("Confirm your password",
+                          Icons.person_outline, true, _confirmPassword),
+                    ]),
+                  ),
                 ),
 //-- End SignUpTabs_EditText_79 --//
 //-- Component AlreadyhaveanaccountSignin_TextView_80 --//

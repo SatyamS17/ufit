@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:ufit/homePage_screen_2.dart';
+import 'package:ufit/registrationScreen_screen_3.dart';
+import 'package:ufit/ui/reusable_widgets.dart';
 import '../../ui/export.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class signInScreen_screen_4 extends StatefulWidget {
   const signInScreen_screen_4({Key? key}) : super(key: key);
@@ -9,6 +14,8 @@ class signInScreen_screen_4 extends StatefulWidget {
 }
 
 class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -208,30 +215,38 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
                       left: 33,
                       top: 395,
                       child: SizedBox(
-                          width: 325,
-                          height: 50,
-                          child: TextFormField(
-                              textAlign: TextAlign.left,
-                              maxLines: (50 * 0.10).toInt(),
-                              decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(
-                                    left: 20, top: 45), // remove or set it to 0
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 211, 207, 207),
-                                hintText: 'Enter your UIUC email',
-                                hintStyle: const TextStyle(
-                                    color: Color.fromARGB(255, 121, 118, 118)),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                  borderSide: const BorderSide(
-                                      style: BorderStyle.none, width: 0),
-                                ),
-                              ),
-                              style: const TextStyle(
-                                color: Color.fromARGB(255, 121, 118, 118),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                              ))),
+                        width: 325,
+                        height: 75,
+
+                        child: Column(
+                          children: [
+                            reusuableTextField("Enter your UIUC email",
+                                Icons.email, false, _emailController)
+                          ],
+                        ),
+                        // child: TextFormField(
+                        //     textAlign: TextAlign.left,
+                        //     maxLines: (50 * 0.10).toInt(),
+                        //     decoration: InputDecoration(
+                        //       contentPadding: EdgeInsets.only(
+                        //           left: 20, top: 45), // remove or set it to 0
+                        //       filled: true,
+                        //       fillColor: Color.fromARGB(255, 211, 207, 207),
+                        //       hintText: 'Enter your UIUC email',
+                        //       hintStyle: const TextStyle(
+                        //           color: Color.fromARGB(255, 121, 118, 118)),
+                        //       border: OutlineInputBorder(
+                        //         borderRadius: BorderRadius.circular(100),
+                        //         borderSide: const BorderSide(
+                        //             style: BorderStyle.none, width: 0),
+                        //       ),
+                        //     ),
+                        //     style: const TextStyle(
+                        //       color: Color.fromARGB(255, 121, 118, 118),
+                        //       fontSize: 16,
+                        //       fontWeight: FontWeight.w700,
+                        //     ))),
+                      ),
                     ),
 //-- End SignUpTabs_EditText_96 --//
 //-- Component SignUpTabs_EditText_97 --//
@@ -241,50 +256,47 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
                       top: 474,
                       child: SizedBox(
                           width: 325,
-                          height: 50,
-                          child: TextFormField(
-                              textAlign: TextAlign.left,
-                              maxLines: (50 * 0.10).toInt(),
-                              decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(
-                                    left: 20, top: 40), // remove or set it to 0
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 211, 207, 207),
-                                hintText: 'Enter your password',
-                                hintStyle: const TextStyle(
-                                    color: Color.fromARGB(255, 121, 118, 118)),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                  borderSide: const BorderSide(
-                                      style: BorderStyle.none, width: 0),
-                                ),
-                              ),
-                              style: const TextStyle(
-                                color: Color.fromARGB(255, 121, 118, 118),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                              ))),
+                          height: 75,
+                          child: Column(
+                            children: [
+                              reusuableTextField("Enter your passsword",
+                                  Icons.password, true, _passwordController)
+                            ],
+                          )
+                          // child: TextFormField(
+                          //     textAlign: TextAlign.left,
+                          //     maxLines: (50 * 0.10).toInt(),
+                          //     decoration: InputDecoration(
+                          //       contentPadding: EdgeInsets.only(
+                          //           left: 20, top: 40), // remove or set it to 0
+                          //       filled: true,
+                          //       fillColor: Color.fromARGB(255, 211, 207, 207),
+                          //       hintText: 'Enter your password',
+                          //       hintStyle: const TextStyle(
+                          //           color: Color.fromARGB(255, 121, 118, 118)),
+                          //       border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(100),
+                          //         borderSide: const BorderSide(
+                          //             style: BorderStyle.none, width: 0),
+                          //       ),
+                          //     ),
+                          //     style: const TextStyle(
+                          //       color: Color.fromARGB(255, 121, 118, 118),
+                          //       fontSize: 16,
+                          //       fontWeight: FontWeight.w700,
+                          //     ))
+
+                          ),
                     ),
 //-- End SignUpTabs_EditText_97 --//
 //-- Component ForgotPasswordClickHere_TextView_98 --//
-                    const Positioned(
-                        left: 90,
-                        top: 538,
-                        child: Text(
-                          "Forgot Password? Click Here",
-                          overflow: TextOverflow.visible,
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              wordSpacing: 1.0),
-                        )),
+
 //-- End ForgotPasswordClickHere_TextView_98 --//
 //-- Component DonthaveanaccountSignuphere_TextView_99 --//
                     const Positioned(
-                        left: 60,
-                        top: 634,
+                      left: 60,
+                      top: 634,
+                      child: InkWell(
                         child: Text(
                           "Don’t have an account? Sign up here",
                           overflow: TextOverflow.visible,
@@ -294,7 +306,10 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
                               wordSpacing: 1.0),
-                        )),
+                        ),
+                        // onTap: () => launch(registrationScreen_screen_3()),
+                      ),
+                    ),
 //-- End DonthaveanaccountSignuphere_TextView_99 --//
 //-- Component Login_TextView_100 --//
 
@@ -305,6 +320,10 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
                         width: 325 * widthScale,
                         height: 45,
                         child: TextFormField(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => homePage_screen_2())),
                             textAlign: TextAlign.center,
                             maxLines: (50 * 0.10).toInt(),
                             decoration: InputDecoration(

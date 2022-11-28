@@ -1,8 +1,11 @@
 // ignore_for_file: unnecessary_const
 
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ufit/input_userinfo_screen.dart';
 import 'package:ufit/signInScreen_screen_4.dart';
 import 'package:ufit/ui/reusable_widgets.dart';
@@ -22,6 +25,9 @@ class _registrationScreen_screen_3State
   TextEditingController _emailTextController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
   TextEditingController _confirmPassword = new TextEditingController();
+  bool _isVisible = false;
+  String text = "not set";
+  double num = 90.0;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -220,17 +226,101 @@ class _registrationScreen_screen_3State
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      onPressed: () => {
-                        FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                                email: _emailTextController.text,
-                                password: _passwordController.text)
-                            .then((value) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => input()));
-                        }).onError((error, stackTrace) {
-                          print("Error");
-                        })
+                      onPressed: () async {
+                        setState(
+                          () {
+                            _isVisible = false;
+                            num = 90.0;
+                            text = "";
+                          },
+                        );
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => Center(
+                              child: CircularProgressIndicator(
+                            backgroundColor: Color.fromARGB(255, 219, 114, 45),
+                          )),
+                        );
+
+                        try {
+                          if (_confirmPassword.text.trim() !=
+                              _passwordController.text.trim()) {
+                            throw new FormatException();
+                          }
+                          if (!(_emailTextController.text
+                              .contains('@illinois.edu'))) {
+                            throw new FormatException();
+                          }
+                          if (_passwordController.text.length < 5) {
+                            throw new FormatException();
+                          }
+                          if (_confirmPassword.text == "" || _passwordController.text == "" || _emailTextController.text == "" || _fullName.text == "") {
+                            throw new FormatException();
+                          }
+                          ;
+                          FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                                  email: _emailTextController.text.trim(),
+                                  password: _passwordController.text.trim())
+                              .then((value) {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => input()));
+                          }).onError((error, stackTrace) {
+                            throw new Exception();
+                          });
+                        } catch (FormatException) {
+                          
+                          if (_confirmPassword.text.trim() !=
+                              _passwordController.text.trim()) {
+                            print("password not the same" +
+                                _confirmPassword.text +
+                                _passwordController.text);
+                            setState(
+                              () {
+                                text = "PASSWORDS DON'T MATCH";
+                                _isVisible = true;
+                              },
+                            );
+                          }
+                          if (!(_emailTextController.text
+                              .contains('@illinois.edu'))) {
+                            print("make sure email and password are valid");
+                            setState(
+                              () {
+                                text = "MUST BE ILLINOIS EMAIL!";
+                                _isVisible = true;
+                              },
+                            );
+                          }
+                          if (_passwordController.text.length < 5) {
+                            print("weak password");
+                            setState(
+                              () {
+                                text = "USE A STRONGER PASSWORD!";
+                                _isVisible = true;
+                                 num = 75;
+                              },
+                            );
+                          }
+
+                          if (_confirmPassword.text == "" || _passwordController.text == "" || _emailTextController.text == "" || _fullName.text == "") {
+                            print("make sure all values are full");
+                            setState(
+                              () {
+                                text = "PLEASE ENTER ALL YOUR DETAILS!";
+                                _isVisible = true;
+                                 num = 60;
+                              },
+                            );
+                          }
+                          
+                        } finally {
+                          Navigator.pop(context);
+                        }
                       },
                     ),
                   ),
@@ -250,6 +340,22 @@ class _registrationScreen_screen_3State
                           color: Colors.white,
                           wordSpacing: 1.0),
                     )),
+
+                Positioned(
+                    left: num,
+                    top: 593,
+                    child: Visibility(
+                        visible: _isVisible,
+                        child: Text(
+                          text,
+                          overflow: TextOverflow.visible,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w700,
+                              color: Color.fromARGB(255, 143, 28, 20),
+                              wordSpacing: 1.0),
+                        ))),
 //-- End SIGNUP_TextView_73 --//
 //-- Component SignUpTabs_Button_74 --//
                 Positioned(

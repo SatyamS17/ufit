@@ -346,8 +346,8 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
                           ),),
                             onPressed: () => {
                                 FirebaseAuth.instance.signInWithEmailAndPassword(
-                                  email: _emailController.text, 
-                                  password: _passwordController.text).then((value) {
+                                  email: _emailController.text.trim(), 
+                                  password: _passwordController.text.trim()).then((value) {
                                     Navigator.push(
                                 context,
                                 MaterialPageRoute(

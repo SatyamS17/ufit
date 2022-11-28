@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: welcomePage_screen_1(),
+      home: registrationScreen_screen_3(),
     );
   }
 }

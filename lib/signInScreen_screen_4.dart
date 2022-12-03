@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ufit/homePage_screen_2.dart';
+import 'package:ufit/profile.dart';
 import 'package:ufit/registrationScreen_screen_3.dart';
 import 'package:ufit/ui/reusable_widgets.dart';
 import '../../ui/export.dart';
@@ -383,7 +384,7 @@ class _signInScreen_screen_4State extends State<signInScreen_screen_4> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            homePage_screen_2()));
+                                            homePage_screen_2(recordObject: 0)));
                               }).onError((error, stackTrace) {
                                 print("wrong password");
                                 setState(

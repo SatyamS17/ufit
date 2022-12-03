@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
+import 'package:ufit/profile.dart';
 import 'package:ufit/schedule.dart';
 
 class Calender extends StatefulWidget {
@@ -23,8 +24,11 @@ class _CalenderState extends State<Calender> {
         title: Text("Hello"),
       ),
       */
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+        //mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           child: TableCalendar(
@@ -90,6 +94,7 @@ class _CalenderState extends State<Calender> {
             ),
           ),
         ),
+        
         Container(
           color: Color.fromARGB(255, 15, 55, 88),
           height: 10,
@@ -98,7 +103,7 @@ class _CalenderState extends State<Calender> {
         Container(
           
             width: MediaQuery.of(context).size.width,
-            height: 300,
+            height: 350,
             color: Color.fromARGB(255, 241, 239, 239),
             child: new Stack(
               children: [
@@ -111,7 +116,7 @@ class _CalenderState extends State<Calender> {
                     style: TextStyle(
                       color: Color.fromARGB(255, 15, 55, 88),
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 35,
                     ),
                     //shows the date
                     DateFormat.EEEE().format(DateTime.now()) +
@@ -120,7 +125,7 @@ class _CalenderState extends State<Calender> {
                   ),
                 ),
                 new Positioned(
-                  top: 250.0,
+                  top: 300.0,
                   child: Container(
                     color: Color.fromARGB(255, 219, 114, 45),
                     width: MediaQuery.of(context).size.width,
@@ -128,56 +133,33 @@ class _CalenderState extends State<Calender> {
                   ),
                 ),
                 new Positioned(
-                  top: 225.0,
-                  left: MediaQuery.of(context).size.width / 5,
+                  top: 275.0,
+                  left: MediaQuery.of(context).size.width / 7.5,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Color.fromARGB(255, 15, 55, 88),
-                      side: BorderSide(color: Colors.white, width: 2.75),
+                      //side: BorderSide(color: Colors.white, width: 2.75),
                       textStyle: TextStyle(
+
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     child: Text('View Detailed Schedule'),
                     onPressed: () {
-                      Navigator.push(context,
+                      Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => Schedule()));
                     },
                   ),
                 ),
               ],
             )),
-        /*
-        Container(
-          color: Color.fromARGB(255, 219, 114, 45),
-          width: MediaQuery.of(context).size.width,
-          height: 50,
-        ),
-        */
-        Container(
-          child: BottomNavigationBar(
-            backgroundColor: Color.fromRGBO(21, 104, 165, 1),
-            fixedColor: Colors.white,
-            items: [
-              BottomNavigationBarItem(
-                label: "Home",
-                icon: Icon(Icons.home),
-                
-              ),
-              BottomNavigationBarItem(
-                label: "Calendar",
-                icon: Icon(Icons.calendar_month),
-              ),
-              BottomNavigationBarItem(
-                label: "Schedule",
-                icon: Icon(Icons.run_circle),
-              ),
-            ],
-          ),
-        )
+      
       ],
-    ));
+    )
+        
+      ),);
   }
 }
+

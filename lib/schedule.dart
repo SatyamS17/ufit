@@ -18,7 +18,9 @@ class _ScheduleState extends State<Schedule> {
     return Scaffold(
         body: Column(
       children: [
-        Container(
+        Stack(
+          children: [
+            Container(
           height: 80,
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -32,7 +34,36 @@ class _ScheduleState extends State<Schedule> {
                 tileMode: TileMode.clamp),
           ),
         ),
-        Container(
+        Positioned(
+                    top: 15,
+                    left: 10,
+                    child: GestureDetector(
+                      onTap: () {
+                       Navigator.pop(context);
+                      },
+                      child: Container(
+                        width: 45,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.arrow_back,
+                            size: 50,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+          ],
+        ),
+        
+        
+        SingleChildScrollView(
+          child: Container(
           height: MediaQuery.of(context).size.height / 1.2,
           child: SfCalendar(
             view: CalendarView.day,
@@ -56,26 +87,9 @@ class _ScheduleState extends State<Schedule> {
             todayHighlightColor: Color.fromARGB(255, 219, 114, 45),
           ),
         ),
-        Container(
-          child: BottomNavigationBar(
-            backgroundColor: Color.fromRGBO(21, 104, 165, 1),
-            fixedColor: Colors.white,
-            items: [
-              BottomNavigationBarItem(
-                label: "Home",
-                icon: Icon(Icons.home),
-              ),
-              BottomNavigationBarItem(
-                label: "Calendar",
-                icon: Icon(Icons.calendar_month),
-              ),
-              BottomNavigationBarItem(
-                label: "Schedule",
-                icon: Icon(Icons.run_circle),
-              ),
-            ],
-          ),
         ),
+        
+        
       ],
     ));
   }

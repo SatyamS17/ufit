@@ -2,11 +2,14 @@
 
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ufit/input_userinfo_screen.dart';
+import 'package:ufit/profile.dart';
 import 'package:ufit/signInScreen_screen_4.dart';
 import 'package:ufit/ui/reusable_widgets.dart';
 import '../ui/export.dart';
@@ -227,6 +230,7 @@ class _registrationScreen_screen_3State
                         ),
                       ),
                       onPressed: () async {
+                        print(FirebaseAuth.instance.currentUser!.uid + "NO");
                         setState(
                           () {
                             _isVisible = false;
@@ -268,9 +272,15 @@ class _registrationScreen_screen_3State
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => input()));
+                                    builder: (context) => Profile()));
                           }).onError((error, stackTrace) {
                             throw new Exception();
+                          });
+                          FirebaseFirestore.instance.collection('users').add({
+                            'name' : _fullName.text.trim(),
+                            'email' : _emailTextController.text.trim(),
+                             'uid' : FirebaseAuth.instance.currentUser!.uid,
+                            
                           });
                         } catch (FormatException) {
                           

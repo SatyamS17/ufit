@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ufit/calendar.dart';
 import 'package:ufit/homePage_screen_2.dart';
+import 'package:ufit/profile.dart';
+import 'package:ufit/user_input.dart';
 import 'package:ufit/welcomePage_screen_1.dart';
 import 'package:ufit/signInScreen_screen_4.dart';
 import 'package:ufit/registrationScreen_screen_3.dart';
